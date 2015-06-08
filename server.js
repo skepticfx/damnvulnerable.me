@@ -9,5 +9,5 @@ var app = require('./app');
 app.set('port', port);
 
 var server = app.listen(app.get('port'), function() {
-  console.log('DamnVulnerable.io listening on port ' + server.address().port);
+  console.log('DamnVulnerable.me listening on port ' + server.address().port);
 });

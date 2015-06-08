@@ -7,4 +7,16 @@ router.get('/', function(req, res) {
 });
 
 
+/* Simple XHR Response */
+router.get('/xhr/simple', function(req, res) {
+  var obj = {};
+  obj.type = 'DamnGoodType';
+  obj.name = 'AmazingName';
+  obj.description = 'This is a damn good description of a damn good Name.';
+  res.json(200, obj);
+});
+
+
+
+
 module.exports = router;
