@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/1', function(req, res) {
-
-  res.render('misc/1', {title: 'Misc Bug 1'});
+router.get('/:id', function(req, res) {
+  res.setHeader('X-XSS-Protection', '0');
+  res.render('misc/'+req.params.id, {scriptSrc: req.params.id, params: req.query});
 });
 
 

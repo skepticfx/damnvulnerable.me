@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>
+    XMLHttpResponse flows to DIV Element's outerHTML directly.
+  </title>
+  <script src="/js/domxss/<%= scriptSrc %>.js"></script>
+</head>
+<body>
+<div>
+  <section class="post">
+    <header class="post-header">
+      <center><h2 class="post-title">XMLHttpResponse flows to DIV Element's outerHTML directly.</h2></center><br/><br/>
+    </header>
+
+    <div class="post-description">
+      <h2>The XHR response is a JSON document with the description field in it. This page tries to populate it directly in to the DIV element below, directly using .outerHTML.</h2>
+    </div>
+  </section>
+</div>
+
+<h3>vulnerableDiv</h3>
+
+<div id="vulnerableDiv">
+
+</div>
+
+</body>
+</html>

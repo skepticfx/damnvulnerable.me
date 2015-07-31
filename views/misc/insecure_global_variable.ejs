@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title>
+    Insecure Global variable usage
+  </title>
+</head>
+<body>
+<div>
+  <section class="post">
+    <header class="post-header">
+      <center><h2 class="post-title">Insecure usage of Global variable</h2>
+      <h1>Your input will be executed in a Sandboxed Iframe with 'allow-scripts', which has the origin as 'null'. </h1></center><br/><br/>
+    </header>
+
+    <div class="post-description">
+      <p>
+        <form>
+        Payload: <input type="text" name="payload"/>
+        <input type="submit" value="Send this payload to IFRAME"/>
+
+      </form>
+      </p>
+    </div>
+  </section>
+</div>
+<script>
+  window.onload = function(){
+    var iframe = document.createElement('iframe');
+    iframe.sandbox = 'allow-scripts';
+    iframe.id = 'inferno';
+    iframe.src= "/misc/insecure_global_variable_iframe?payload=<%- encodeURIComponent(params.payload) %>";
+    document.getElementById('iframeContent').appendChild(iframe);
+
+    // Secure Code Starts. We need to protect this.
+
+    iframe.onload = function(){
+      // Can you hadle INFERNO? Might be not, you are not legit.
+      window.INFERNO = function(){
+        SECURE_FLAG = true;
+        // SECURE_FLAG is set here
+        // If this function is called, then do the Secure Code below, based on the value of SECURE_FLAG (has to be TRUE)
+      }
+      if(SECURE_FLAG){
+        alert('You just broke out of Iframe Sandbox.');
+      } else {
+        console.log('Nothing Happened !');
+      }
+
+    }
+    // Secure Code Ends
+  };
+</script>
+
+<div id="iframeContent""></div>
+
+</body>
+</html>

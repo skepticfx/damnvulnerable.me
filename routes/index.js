@@ -12,7 +12,7 @@ router.get('/xhr/simple', function(req, res) {
   var obj = {};
   obj.type = 'DamnGoodType';
   obj.name = 'AmazingName';
-  obj.description = 'This is a damn good description of a damn good Name.';
+  obj.description = req.query.description ||  'This is a damn good description of a damn good Name.';
   res.json(200, obj);
 });
 

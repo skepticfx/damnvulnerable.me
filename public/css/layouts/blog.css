@@ -181,3 +181,8 @@ h3 {
         bottom: 0;
     }
 }
+
+#sidebar-home{
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
