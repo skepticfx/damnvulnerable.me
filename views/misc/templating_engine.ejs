@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>Templating Bypass</title>
+
+  <script src="/js/misc/<%= scriptSrc %>.js"></script>
+</head>
+
+<body>
+<center>
+  <h1> How not to do client-side templating</h1>
+  <h1> We are gonna template this HTML: <quote> &lt;img src='PLACEHOLDER' &gt; </quote></PLACEHOLDER><h1>
+
+      <h2>Enter your src here: <input wid size="100" id="id_input" type="text" value="https://asmallorange.com/assets/css/images/temp/service6.png"></h2>
+      <h2> <button id="id_button" onclick="doTemplating()"> Template this </button></h2>
+</center>
+</body>
+</html>
+
