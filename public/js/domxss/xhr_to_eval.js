@@ -17,8 +17,7 @@ window.onload = function(){
         eval(description);
       }
       catch(e){
-        console.warn("Error evaluating EVAL function.");
-        throw e;
+        console.warn("Error evaluating EVAL function." + e);
       }
     }
   }
